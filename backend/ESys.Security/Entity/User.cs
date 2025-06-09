@@ -71,7 +71,8 @@ namespace ESys.Security.Entity
     /// 用户实体
     /// </summary>
     [ODataExposed(allowCreate: false)]
-    [AuditDisable]public partial class User : BizEntity<User, int>, ITimedEntity, ITraceableEntity, IHiddenEntity, IActiveEntity
+    [AuditDisable]
+    public partial class User : BizEntity<User, int>, ITimedEntity, ITraceableEntity, IHiddenEntity, IActiveEntity
     {
         /// <summary>
         /// 账号

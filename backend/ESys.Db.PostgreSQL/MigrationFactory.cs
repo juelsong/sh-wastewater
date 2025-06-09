@@ -163,7 +163,7 @@ namespace ESys.Db.DbContext
         }
         public CTX CreateDbContext(string[] args)
         {
-            //var ass = Furion.App.Assemblies.Where(a => a.GetName().Name.Contains("ESys")).ToArray();
+            var ass = Furion.App.Assemblies.Where(a => a.GetName().Name.Contains("ESys")).ToArray();
             //System.Diagnostics.Debugger.Launch();
             var optionsBuilder = new DbContextOptionsBuilder<CTX>();
             var constructor = typeof(CTX).GetConstructor(new[] { typeof(IServiceProvider), typeof(DbContextOptions<CTX>) });

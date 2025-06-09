@@ -47,7 +47,15 @@ namespace ESys.App
                           opt.ConfigureEndpointDefaults(options =>
                           {
                               //测试环境部署，非https需要注掉
-                              options.UseHttps();
+                              //options.UseHttps();
+
+                              // 根据配置决定是否使用HTTPS
+                              var configuration = options.ApplicationServices.GetService(typeof(IConfiguration)) as IConfiguration;
+                              var httpsEnable = configuration?.GetValue<bool>("Kestrel:HttpsEnable");
+                              if (httpsEnable.HasValue && httpsEnable.Value)
+                              {
+                                  options.UseHttps();
+                              }
                           });
                       })
 #endif
